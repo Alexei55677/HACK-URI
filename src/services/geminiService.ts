@@ -1,6 +1,15 @@
-import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || "" });
+const env = import.meta.env as Record<string, string | undefined>;
+const apiKey = env.VITE_GEMINI_API_KEY ?? env.GEMINI_API_KEY ?? "";
+
+if (!apiKey) {
+  throw new Error(
+    "Missing Gemini API key. Set VITE_GEMINI_API_KEY or GEMINI_API_KEY in .env.local (UTF-8 encoding) and restart the dev server."
+  );
+}
+
+const ai = new GoogleGenAI({ apiKey });
 
 export interface BESSErrors {
   handsOffIliacCrests: number;

@@ -2,7 +2,7 @@ import express from "express";
 import { createServer as createViteServer } from "vite";
 import Database from "better-sqlite3";
 import path from "path";
-
+import "dotenv/config";
 const db = new Database("bess_data.db");
 
 // Initialize database
