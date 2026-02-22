@@ -1,0 +1,7 @@
+{
+  "name": "BESS Balance AI",
+  "description": "AI-powered Balance Error Scoring System (BESS) analysis using computer vision to track stability errors from video data.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
